@@ -12,23 +12,27 @@ endif
 .PHONY: all reset clean_firmware clean_image clean
 
 all:
+	$(shell bin/get_version_local.sh kb44 >> /dev/null)
 	$(DOCKER) build --tag zmk-keyball44 --file Dockerfile .
-	$(DOCKER) run --rm -it --name zmk-keyball44 \
+	$(DOCKER) run --rm --name zmk-keyball44 \
 		-v $(PWD)/firmware:/app/firmware$(SELINUX1) \
 		-v $(PWD)/config:/app/config:ro$(SELINUX2) \
 		-e TIMESTAMP=$(TIMESTAMP) \
 		-e COMMIT=$(COMMIT) \
 		zmk-keyball44
+	git checkout config/version.dtsi
 
 reset:
+	$(shell bin/get_version_local.sh kb44 >> /dev/null)
 	$(DOCKER) build --tag zmk-keyball44 --file Dockerfile .
-	$(DOCKER) run --rm -it --name zmk-keyball44 \
+	$(DOCKER) run --rm --name zmk-keyball44 \
 		-v $(PWD)/firmware:/app/firmware$(SELINUX1) \
 		-v $(PWD)/config:/app/config:ro$(SELINUX2) \
 		-e TIMESTAMP=$(TIMESTAMP) \
 		-e COMMIT=$(COMMIT) \
 		-e BUILD_SETTINGS_RESET=true \
 		zmk-keyball44
+	git checkout config/version.dtsi
 
 clean_firmware:
 	rm -f firmware/*.uf2

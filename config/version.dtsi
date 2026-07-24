@@ -1,0 +1,10 @@
+// Committed fallback so builds that skip bin/get_version_local.sh (e.g.
+// the GitHub Actions workflow) still compile. Types "ghbuild" so firmware
+// built that way identifies itself; local `make` regenerates this file
+// with the real date-branch-commit stamp and restores it afterwards.
+#define VERSION_MACRO
+macro_ver: macro_ver {
+compatible = "zmk,behavior-macro";
+#binding-cells = <0>;
+bindings = <&kp G>, <&kp H>, <&kp B>, <&kp U>, <&kp I>, <&kp L>, <&kp D>, <&kp RET>;
+};
