@@ -6,5 +6,7 @@
 macro_ver: macro_ver {
 compatible = "zmk,behavior-macro";
 #binding-cells = <0>;
+wait-ms = <30>;
+tap-ms = <30>;
 bindings = <&kp G>, <&kp H>, <&kp B>, <&kp U>, <&kp I>, <&kp L>, <&kp D>, <&kp RET>;
 };
