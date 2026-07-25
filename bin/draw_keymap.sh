@@ -18,10 +18,27 @@ trap 'rm -f "$parsed"' EXIT
 
 uvx --from keymap-drawer keymap -c keymap_drawer.config.yaml parse -z config/keyball44.keymap > "$parsed"
 
-# keymap-drawer has no bundled physical layout named "keyball44"; point it
-# at the shield's devicetree physical layout instead.
-sed -i '' '1s|.*|layout: {dts_layout: config/boards/shields/keyball_nano/keyball44.dtsi}|' "$parsed" 2>/dev/null \
-    || sed -i '1s|.*|layout: {dts_layout: config/boards/shields/keyball_nano/keyball44.dtsi}|' "$parsed"
+# Post-process the parsed keymap:
+# - Shifted glyphs only make sense where Shift is chordable, so strip the
+#   shifted legends from every layer except the base (the keycode map that
+#   adds them is global).
+# - keymap-drawer has no bundled physical layout named "keyball44"; point it
+#   at the shield's devicetree physical layout instead.
+uvx --from keymap-drawer python - "$parsed" <<'PY'
+import sys, yaml
+path = sys.argv[1]
+with open(path) as f:
+    data = yaml.safe_load(f)
+data["layout"] = {"dts_layout": "config/boards/shields/keyball_nano/keyball44.dtsi"}
+for name, keys in data.get("layers", {}).items():
+    if name == "QWRT":
+        continue
+    for key in keys:
+        if isinstance(key, dict):
+            key.pop("s", None)
+with open(path, "w") as f:
+    yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False)
+PY
 
 uvx --from keymap-drawer keymap draw "$parsed" > img/keymap.svg
 echo "wrote img/keymap.svg"
