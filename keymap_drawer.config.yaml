@@ -1,0 +1,72 @@
+# keymap-drawer config used by bin/draw_keymap.sh.
+# Adds shifted legends (e.g. : above ;) so the rendered layers read like
+# real keycaps; the default map shows only the unshifted glyph.
+parse_config:
+  zmk_keycode_map:
+    N1: {t: "1", s: "!"}
+    N2: {t: "2", s: "@"}
+    N3: {t: "3", s: "#"}
+    N4: {t: "4", s: "$"}
+    N5: {t: "5", s: "%"}
+    N6: {t: "6", s: "^"}
+    N7: {t: "7", s: "&"}
+    N8: {t: "8", s: "*"}
+    N9: {t: "9", s: "("}
+    N0: {t: "0", s: ")"}
+    NUMBER_1: {t: "1", s: "!"}
+    NUMBER_2: {t: "2", s: "@"}
+    NUMBER_3: {t: "3", s: "#"}
+    NUMBER_4: {t: "4", s: "$"}
+    NUMBER_5: {t: "5", s: "%"}
+    NUMBER_6: {t: "6", s: "^"}
+    NUMBER_7: {t: "7", s: "&"}
+    NUMBER_8: {t: "8", s: "*"}
+    NUMBER_9: {t: "9", s: "("}
+    NUMBER_0: {t: "0", s: ")"}
+    SEMI: {t: ";", s: ":"}
+    SEMICOLON: {t: ";", s: ":"}
+    SQT: {t: "'", s: "\""}
+    QUOTE: {t: "'", s: "\""}
+    COMMA: {t: ",", s: "<"}
+    DOT: {t: ".", s: ">"}
+    PERIOD: {t: ".", s: ">"}
+    SLASH: {t: "/", s: "?"}
+    FSLH: {t: "/", s: "?"}
+    GRAVE: {t: "`", s: "~"}
+    MINUS: {t: "-", s: "_"}
+    EQUAL: {t: "=", s: "+"}
+    LBKT: {t: "[", s: "{"}
+    LEFT_BRACKET: {t: "[", s: "{"}
+    RBKT: {t: "]", s: "}"}
+    RIGHT_BRACKET: {t: "]", s: "}"}
+    BSLH: {t: "\\", s: "|"}
+    BACKSLASH: {t: "\\", s: "|"}
+    # The entries above REPLACE keymap-drawer's built-in map (no merge), so
+    # re-add the plain symbol names the layers use or they render as words.
+    EXCLAMATION: "!"
+    EXCL: "!"
+    AT_SIGN: "@"
+    AT: "@"
+    HASH: "#"
+    POUND: "#"
+    DOLLAR: "$"
+    DLLR: "$"
+    PERCENT: "%"
+    PRCNT: "%"
+    CARET: "^"
+    AMPERSAND: "&"
+    AMPS: "&"
+    ASTERISK: "*"
+    ASTRK: "*"
+    STAR: "*"
+    LEFT_PARENTHESIS: "("
+    LPAR: "("
+    RIGHT_PARENTHESIS: ")"
+    RPAR: ")"
+    UNDERSCORE: "_"
+    UNDER: "_"
+    PLUS: "+"
+    NON_US_BACKSLASH: "\\"
+    QUESTION: "?"
+    QMARK: "?"
+    TILDE: "~"

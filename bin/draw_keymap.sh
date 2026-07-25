@@ -16,7 +16,7 @@ mkdir -p img
 parsed=$(mktemp)
 trap 'rm -f "$parsed"' EXIT
 
-uvx --from keymap-drawer keymap parse -z config/keyball44.keymap > "$parsed"
+uvx --from keymap-drawer keymap -c keymap_drawer.config.yaml parse -z config/keyball44.keymap > "$parsed"
 
 # keymap-drawer has no bundled physical layout named "keyball44"; point it
 # at the shield's devicetree physical layout instead.
