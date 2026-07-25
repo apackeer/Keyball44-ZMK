@@ -171,14 +171,15 @@
         };
 
         // Hold the Delete thumb key (next to the trackball) for Bluetooth
-        // management and the version macro.
+        // management, the version macro, and media/display controls
+        // (right hand mirrors the Adv360 Tri layer).
         utilities_layer {
             label = "UTIL";
             bindings = <
-&none  &none       &none         &none         &none         &none               &none  &none  &none  &none  &none  &none
-&none  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &macro_ver          &none  &none  &none  &none  &none  &none
-&none  &none       &none         &none         &none         &none               &none  &none  &none  &none  &none  &none
-&none  &none       &none         &none         &none               &none  &none                                     &trans
+&none  &none       &none         &none         &none         &none               &kp C_BRI_UP  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &none  &none
+&none  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &macro_ver          &kp C_BRI_DN  &kp C_PREV  &kp C_PP      &kp C_NEXT    &none  &none
+&none  &none       &none         &none         &none         &none               &none         &none       &none         &none         &none  &none
+&none  &none       &none         &none         &none               &none  &none                                                               &trans
             >;
         };
     };
