@@ -10,6 +10,13 @@ branch=$(git rev-parse --abbrev-ref HEAD | cut -c1-4)
 commit=$(git rev-parse --short HEAD)
 suffix=${1:-"kb44"}
 
+# A commit hash only identifies the build when the tree is clean; append a
+# dirty marker so an uncommitted build can never impersonate its parent
+# commit. (version.dtsi itself is excluded: this script rewrites it.)
+if [ -n "$(git status --porcelain --untracked-files=no -- . ':!config/version.dtsi')" ]; then
+    commit="${commit}x"
+fi
+
 uppercase_char() {
     local char=$1
 

@@ -1,6 +1,8 @@
 DOCKER := $(shell { command -v podman || command -v docker; })
 TIMESTAMP := $(shell date -u +"%Y%m%d%H%M")
-COMMIT := $(shell git rev-parse --short HEAD 2>/dev/null)
+# Mark uncommitted builds with an x so the firmware filename (and the
+# version macro, via get_version_local.sh) never impersonates a commit.
+COMMIT := $(shell git rev-parse --short HEAD 2>/dev/null)$(shell git status --porcelain --untracked-files=no -- . ':!config/version.dtsi' | grep -q . && echo x)
 ifeq ($(shell uname),Darwin)
 SELINUX1 :=
 SELINUX2 :=
