@@ -13,12 +13,23 @@ endif
 
 .PHONY: all reset clean_firmware clean_image clean
 
+# Local display module (Street Fighter nice!view art). Kept OUT of this
+# repo; when the directory exists it is mounted into the build container
+# and build.sh swaps the stock nice_view shield for it.
+DISPLAY_MODULE := $(HOME)/src/nice-view-keyball
+ifneq ($(wildcard $(DISPLAY_MODULE)),)
+MODULE_MOUNT := -v $(DISPLAY_MODULE):/modules/nice-view-keyball:ro$(SELINUX2)
+else
+MODULE_MOUNT :=
+endif
+
 all:
 	$(shell bin/get_version_local.sh kb44 >> /dev/null)
 	$(DOCKER) build --tag zmk-keyball44 --file Dockerfile .
 	$(DOCKER) run --rm --name zmk-keyball44 \
 		-v $(PWD)/firmware:/app/firmware$(SELINUX1) \
 		-v $(PWD)/config:/app/config:ro$(SELINUX2) \
+		$(MODULE_MOUNT) \
 		-e TIMESTAMP=$(TIMESTAMP) \
 		-e COMMIT=$(COMMIT) \
 		zmk-keyball44
