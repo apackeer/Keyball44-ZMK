@@ -16,3 +16,9 @@
 		, <&pro_micro 9 GPIO_ACTIVE_HIGH>
 		;
 };
+
+/ {
+    central_states_relay {
+        compatible = "zmk,central-states-relay";
+    };
+};

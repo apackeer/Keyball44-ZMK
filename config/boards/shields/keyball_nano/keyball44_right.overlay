@@ -67,3 +67,9 @@
 
   };
 };
+
+/ {
+    central_states_relay {
+        compatible = "zmk,central-states-relay";
+    };
+};

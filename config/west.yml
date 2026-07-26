@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: mochukeeb
       url-base: https://github.com/mochukeeb
+    - name: artemyurov
+      url-base: https://github.com/ArtemYurov
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -12,5 +14,8 @@ manifest:
     - name: zmk-pmw3610-driver
       remote: mochukeeb
       revision: main
+    - name: zmk-central-states-relay
+      remote: artemyurov
+      revision: 39e3d8ab15fded008c543618acce7a1724ca0459
   self:
     path: config
