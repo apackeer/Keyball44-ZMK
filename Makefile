@@ -13,14 +13,21 @@ endif
 
 .PHONY: all reset clean_firmware clean_image clean
 
-# Local display module (Street Fighter nice!view art). Kept OUT of this
-# repo; when the directory exists it is mounted into the build container
-# and build.sh swaps the stock nice_view shield for it.
-DISPLAY_MODULE := $(HOME)/src/nice-view-keyball
-ifneq ($(wildcard $(DISPLAY_MODULE)),)
-MODULE_MOUNT := -v $(DISPLAY_MODULE):/modules/nice-view-keyball:ro$(SELINUX2)
+# Use an optional sibling nice-view-keyball checkout by default. Set
+# DISPLAY_MODULE to use a checkout elsewhere, or leave it empty to build
+# with the stock nice_view shield.
+DISPLAY_MODULE ?= $(CURDIR)/../nice-view-keyball
+DISPLAY_MODULE_PATH := $(abspath $(DISPLAY_MODULE))
+DISPLAY_MODULE_FOUND := $(shell test -n "$(DISPLAY_MODULE)" && test -d "$(DISPLAY_MODULE_PATH)" && printf yes)
+ifneq ($(DISPLAY_MODULE_FOUND),)
+MODULE_MOUNT := -v "$(DISPLAY_MODULE_PATH):/modules/nice-view-keyball:ro$(SELINUX2)"
 else
 MODULE_MOUNT :=
+ifneq ($(strip $(DISPLAY_MODULE)),)
+ifneq ($(origin DISPLAY_MODULE),file)
+$(error DISPLAY_MODULE is not a directory: $(DISPLAY_MODULE_PATH))
+endif
+endif
 endif
 
 all:
