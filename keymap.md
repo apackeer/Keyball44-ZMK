@@ -18,14 +18,16 @@ via uvx, the same tool mochukeeb used for their layout images).
 
 | Key | Tap | Hold |
 | --- | --- | --- |
-| left outer | LGUI | - |
+| left outer | - | FUN |
 | left 2nd | - | SNIPE (slow trackball) |
 | left 1st angled | - | MOUSE |
 | left middle angled | Backspace | NUM |
-| left inner angled | Escape | SCROLL (trackball scrolls) |
+| left inner angled | Escape | Hyper (Cmd+Opt+Ctrl+Shift) |
 | right inner angled | Enter | - |
 | right outer angled | Space | SYM |
 | right by-trackball | Delete | UTIL |
+
+SCROLL is not on the thumb cluster: hold Caps (left pinky home row).
 
 ## Behaviors
 
@@ -34,6 +36,11 @@ via uvx, the same tool mochukeeb used for their layout images).
   tapping-term 280, quick-tap 175, require-prior-idle 150,
   hold-trigger-on-release, opposite-hand-only trigger positions. Mods fire
   on pause-then-reach-across; same-hand rolls always type letters.
+- **Thumb layer-taps** (Backspace/NUM, Space/SYM, Delete/UTIL): `ltp`
+  hold-tap ported from the Adv360's lt_nav/lt_sym - tap-preferred,
+  tapping-term 200, require-prior-idle 150 - so fast rolls like
+  space-then-t type the tap instead of committing the layer hold.
+  Caps/SCROLL still uses stock `&lt` (balanced, 240ms).
 - **macro_ver** (UTIL layer, G position): types the firmware build stamp
   `YYYYMMDD-<branch>-<commit>-kb44`. An `x` after the commit hash means the
   build came from a dirty tree (unverified experiment). Throttled to 30ms
@@ -45,10 +52,11 @@ via uvx, the same tool mochukeeb used for their layout images).
 
 - **MOUSE**: hold left 1st angled thumb, or auto-activates on deliberate
   ball movement (threshold 20) for 700ms. Clicks on J/K/L =
-  left/middle/right.
-- **SCROLL**: hold left inner angled thumb (Escape); ball motion becomes
-  scrolling.
-- **SNIPE**: hold left 2nd thumb; ball CPI drops 1200 -> 400 for precision.
+  left/middle/right; PgUp/PgDn on H/N; Home/End on G/B.
+- **SCROLL**: hold Caps (left pinky home row); ball motion becomes
+  scrolling. Speed = move CPI / scroll tick (600/32).
+- **SNIPE**: hold left 2nd thumb; effective CPI drops 600 -> 400 for
+  precision (move = 600/1, snipe = 800/2, set in keyball44_right.conf).
 
 ## Known gaps / ideas
 
