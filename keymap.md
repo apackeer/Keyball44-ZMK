@@ -33,7 +33,7 @@ SCROLL is not on the thumb cluster: hold Caps (left pinky home row).
 
 - **Homerow mods** (GACS: A=GUI S=Alt D=Ctrl F=Shift, mirrored on J K L ;):
   ported from the Adv360, urob timeless-HRM recipe - balanced flavor,
-  tapping-term 280, quick-tap 175, require-prior-idle 220,
+  tapping-term 280, quick-tap 175, require-prior-idle 250,
   hold-trigger-on-release, opposite-hand non-thumb trigger positions. Mods
   fire on pause-then-reach-across; same-hand and letter+thumb rolls always
   type their taps. Deliberate modifier+thumb chords require holding the

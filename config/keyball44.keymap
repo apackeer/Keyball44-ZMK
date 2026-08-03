@@ -48,7 +48,7 @@
             flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <220>;
+            require-prior-idle-ms = <250>;
             hold-trigger-on-release;
             hold-trigger-key-positions = <
                 // Right hand rows; thumbs 41-43 deliberately excluded
@@ -66,7 +66,7 @@
             flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <220>;
+            require-prior-idle-ms = <250>;
             hold-trigger-on-release;
             hold-trigger-key-positions = <
                 // Left hand rows; thumbs 36-40 deliberately excluded
