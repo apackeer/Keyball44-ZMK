@@ -43,6 +43,9 @@ SCROLL is not on the thumb cluster: hold Caps (left pinky home row).
   tapping-term 200, require-prior-idle 150 - so fast rolls like
   space-then-t type the tap instead of committing the layer hold.
   Caps/SCROLL still uses stock `&lt` (balanced, 240ms).
+- **SYM punctuation**: the left home row is `; : / " ~`; the left bottom
+  row is `` ` < > | ? ``. These complement the existing right-hand
+  operators and brackets without duplicating them.
 - **macro_ver** (UTIL layer, G position): types the firmware build stamp
   `YYYYMMDD-<branch>-<commit>-kb44`. An `x` after the commit hash means the
   build came from a dirty tree (unverified experiment). Throttled to 30ms
@@ -65,6 +68,6 @@ SCROLL is not on the thumb cluster: hold Caps (left pinky home row).
 - FUN layer (F1-F12) is UNREACHABLE: no activator points at it (its own
   `&mo 3` is dead code). Wire a trigger before relying on it.
 - Left Ctrl has no dedicated key (D/K holds only); CAPS took its spot.
-- SYM left hand and NUM right hand are free real estate.
+- NUM right hand is free real estate.
 - caps_word is configured (`continue-list` includes `_` and `-`) but bound
   to no key.

@@ -155,8 +155,8 @@
             label = "SYM";
             bindings = <
 &none   &kp EXCLAMATION  &kp AT_SIGN   &kp HASH      &kp DOLLAR    &kp PERCENT              &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none
-&none   &trans           &trans        &trans        &trans        &trans                   &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp SQT                &none
-&none   &trans           &trans        &trans        &trans        &trans                   &kp UNDERSCORE  &kp PLUS       &kp LEFT_BRACE    &kp RIGHT_BRACE       &kp BACKSLASH          &none
+&none   &kp SEMI         &kp COLON     &kp SLASH     &kp DQT       &kp TILDE                 &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp SQT                &none
+&none   &kp GRAVE        &kp LT        &kp GT        &kp PIPE      &kp QUESTION              &kp UNDERSCORE  &kp PLUS       &kp LEFT_BRACE    &kp RIGHT_BRACE       &kp BACKSLASH          &none
 &trans  &trans           &trans        &trans        &trans                         &trans  &trans                                                                                        &trans
             >;
         };
